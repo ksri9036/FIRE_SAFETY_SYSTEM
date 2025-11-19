@@ -18,6 +18,7 @@ The problem addressed by this project is the critical need for an automated fire
 
 # Verilog Code : 
 '''
+
 module FireSafetyConditional(
     input clk,
     input reset,
@@ -103,9 +104,17 @@ always @(*) begin
     end
 end
 endmodule
+
+
 '''
+
+
 # TESTBENCH:
+
+
 '''
+
+
 module tb_FireSafetyConditional;
 
 // Inputs to DUT
@@ -172,7 +181,9 @@ initial begin
     $stop;
 end
 endmodule 
+
 '''
+
 # Simulation Results :  
 
 <img width="1920" height="1200" alt="Screenshot 2025-11-18 192006" src="https://github.com/user-attachments/assets/f15ae719-3e07-4f19-bbb1-5cfb1b427f1a" />
