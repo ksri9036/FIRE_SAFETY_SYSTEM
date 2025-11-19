@@ -17,7 +17,7 @@ The problem addressed by this project is the critical need for an automated fire
 
 
 # Verilog Code : 
-'''verilog
+```verilog
 
 module FireSafetyConditional(
     input clk,
@@ -105,13 +105,11 @@ always @(*) begin
 end
 endmodule
 
-
-'''
-
+```
 
 # TESTBENCH:
 
-'''verilog
+```verilog
 
 module tb_FireSafetyConditional;
 
@@ -180,7 +178,7 @@ initial begin
 end
 endmodule 
 
-'''
+```
 
 # Simulation Results :  
 
