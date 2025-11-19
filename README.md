@@ -36,27 +36,36 @@ parameter TEMP_THRESHOLD = 8'd60;
 reg [1:0] state;
 parameter SAFE = 2'b00, ALERT = 2'b01, SPRINKLER = 2'b10;
 
-always @(posedge clk or posedge reset) begin
-    if (reset) begin
+always @(posedge clk or posedge reset) 
+begin
+    if (reset) 
+    begin
         state <= SAFE;
-    end else begin
+    end 
+    else 
+    begin
         // Conditional state transitions
-        if (state == SAFE) begin
+        if (state == SAFE) 
+        begin
             if ((smoke > SMOKE_THRESHOLD) || (temp > TEMP_THRESHOLD))
                 state <= ALERT;
             else
                 state <= SAFE;
-        end else if (state == ALERT) begin
+        end else if (state == ALERT) 
+        begin
             if ((smoke > SMOKE_THRESHOLD) || (temp > TEMP_THRESHOLD))
                 state <= SPRINKLER;
             else
                 state <= SAFE;
-        end else if (state == SPRINKLER) begin
+        end else if (state == SPRINKLER) 
+        begin
             if ((smoke > SMOKE_THRESHOLD) || (temp > TEMP_THRESHOLD))
                 state <= SPRINKLER;
             else
                 state <= SAFE;
-        end else begin
+        end 
+        else 
+        begin
             state <= SAFE;
         end
     end
@@ -64,22 +73,29 @@ end
 
 always @(*) begin
     // Conditional output logic
-    if (state == SAFE) begin
+    if (state == SAFE) 
+    begin
         alarm = 0;
         sprinkler = 0;
         safe_indicator = 1;
         alert_indicator = 0;
-    end else if (state == ALERT) begin
+    end 
+    else if (state == ALERT) 
+    begin
         alarm = 1;
         sprinkler = 0;
         safe_indicator = 0;
         alert_indicator = 1;
-    end else if (state == SPRINKLER) begin
+    end
+    else if (state == SPRINKLER)
+    begin
         alarm = 1;
         sprinkler = 1;
         safe_indicator = 0;
         alert_indicator = 1;
-    end else begin
+    end
+    else 
+    begin
         alarm = 0;
         sprinkler = 0;
         safe_indicator = 1;
@@ -87,6 +103,9 @@ always @(*) begin
     end
 end
 endmodule
+'''
+# TESTBENCH:
+'''
 module tb_FireSafetyConditional;
 
 // Inputs to DUT
